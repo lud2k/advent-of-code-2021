@@ -26,7 +26,7 @@ class Board {
   }
 }
 
-const day4par1 = async () => {
+const day4part1 = async () => {
   const response = await fetch('https://adventofcode.com/2021/day/4/input')
   const data = await response.text()
   const sections = data.split('\n\n').slice(0,-1)
@@ -43,4 +43,4 @@ const day4par1 = async () => {
   }
 }
 
-day4par1()
+day4part1()
