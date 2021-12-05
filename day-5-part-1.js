@@ -24,11 +24,7 @@ const day5part1 = async () => {
   const grid = {}
   coordsList.forEach(coords => {
     getCoordsBetweenCoords(coords).forEach(coord => {
-      if (grid[coord] === undefined) {
-        grid[coord] = 1
-      } else {
-        grid[coord]++
-      }
+      grid[coord] = (grid[coord] ?? 0) + 1
     })
   })
   const overlaps = Object.values(grid).filter(value => value > 1)
