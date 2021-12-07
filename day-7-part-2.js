@@ -8,7 +8,7 @@ const day7part2 = async () => {
   for (let i=min; i<=max; i++) {
     costs[i] = positions.reduce((ret, pos) => {
       const dist = Math.abs(pos-i)
-      return ret + (dist ? parseInt((Math.pow(dist+1,2) - dist) / 2) : 0)
+      return ret + (dist * (1 + dist)) / 2
     }, 0)
   }
   const entry = Object.entries(costs).sort((e1, e2) => e1[1]-e2[1])[0]
