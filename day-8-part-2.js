@@ -66,7 +66,6 @@ const determineValue = ([patterns, outputs]) => {
     return ret
   }, {})
 
-  // 16096 too low
   return outputs.reduce((ret, output, index) => {
     return ret + numsMap2[output] * Math.pow(10, 3-index)
   }, 0)
