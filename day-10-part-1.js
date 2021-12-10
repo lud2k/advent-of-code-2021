@@ -10,7 +10,6 @@ const checkLine = (line) => {
     } else {
       const last = stack.pop()
       if (map[last] !== c) {
-        console.log('>', line, i, c, last, scores[c])
         return scores[c]
       }
     }
