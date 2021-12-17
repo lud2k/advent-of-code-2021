@@ -21,33 +21,28 @@ const day17part1 = async () => {
   const match = data.match(/x=(-?\d+)\.\.(-?\d+), y=(-?\d+)\.\.(-?\d+)/)
   const target = { x: [parseInt(match[1], 10), parseInt(match[2], 10)], y: [parseInt(match[3], 10), parseInt(match[4], 10)] }
 
-  const position = [0,0]
-  const velocity = [0,0]
-  const minDistance = target.x[0]-position[0]
-  const maxDistance = target.x[1]-position[0]
-  
   let curV = 0
   let curX = 0
   const velocities = []
-  while (curX <= maxDistance) {
+  while (curX <= target.x[1]) {
     curX += curV
-    if (curX >= minDistance && curX <=maxDistance) {
+    if (curX >= target.x[0] && curX <=target.x[1]) {
       velocities.push(curV)
     }
     curV++
   }
   const vx = velocities[0]
 
-  let maxMaxY = -Number.MAX_VALUE
+  let result = -Number.MAX_VALUE
   let vy = vx * 100
   while (vy > 0) {
     const maxY = testSolution(vx, vy, target)
     if (maxY && maxY > maxMaxY) {
-      maxMaxY = maxY
+      result = maxY
     }
     vy--
   }
-  console.log('result', vx, vy, maxMaxY)
+  console.log('result', result)
 }
 
 day17part1()
