@@ -23,7 +23,7 @@ const day17part1 = async () => {
 
   let result = 0
   for (let vx=1; vx<maxDistance; vx++) {
-    for (let vy=target.y[0]; vy<1000; vy++) {
+    for (let vy=Math.min(target.y[0], 0); vy<Math.abs(target.y[0]); vy++) {
       if (testSolution(vx, vy, target)) {
         result++
       }
