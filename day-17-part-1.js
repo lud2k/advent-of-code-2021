@@ -37,7 +37,7 @@ const day17part1 = async () => {
   let vy = vx * 100
   while (vy > 0) {
     const maxY = testSolution(vx, vy, target)
-    if (maxY && maxY > maxMaxY) {
+    if (maxY && maxY > result) {
       result = maxY
     }
     vy--
