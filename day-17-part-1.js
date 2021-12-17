@@ -23,24 +23,24 @@ const day17part1 = async () => {
 
   let curV = 0
   let curX = 0
-  const velocities = []
+  let vx = 0
   while (curX <= target.x[1]) {
     curX += curV
     if (curX >= target.x[0] && curX <=target.x[1]) {
-      velocities.push(curV)
+      vx = curV
+      break
     }
     curV++
   }
-  const vx = velocities[0]
 
   let result = -Number.MAX_VALUE
-  let vy = vx * 100
-  while (vy > 0) {
+  const svy = Math.abs(target.y[1])
+  const evy = Math.abs(target.y[0])
+  for (let vy = svy; vy<evy; vy++) {
     const maxY = testSolution(vx, vy, target)
-    if (maxY && maxY > result) {
+    if (maxY !== undefined && maxY > result) {
       result = maxY
     }
-    vy--
   }
   console.log('result', result)
 }
